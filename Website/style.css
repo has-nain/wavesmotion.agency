@@ -1,0 +1,271 @@
+/* Ensure the header container is positioned relative */
+.header {
+    position: relative;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Style for the header image */
+.header-img {
+    display: block;
+    width: 100%; /* Ensure the image fits within the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent the image from exceeding the container width */
+    max-height: 100vh; /* Ensure the image does not exceed the viewport height */
+}
+
+/* Style for the text elements */
+.header-text {
+    position: absolute; /* Position absolutely within the header */
+    bottom: 70px; /* Adjust this value to move the text up from the bottom */
+    padding: 0 70px; /* Adjust padding to prevent overflow */
+    z-index: 2; /* Ensure text is above the image */
+}
+
+/* Small text */
+.small-text {
+    font-family: "NeueMontreal-Medium";
+    font-size: 14px; /* Fixed font size */
+    background: linear-gradient(270deg, #999999, #282828); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-bottom: 10px; /* Space between the two text elements */
+}
+
+/* Large text */
+.large-text {
+    font-family: "NeueMontreal-Medium";
+    font-size: 64px; /* Fixed font size */
+    color: #ffffff; /* White color */
+    margin: 0; /* Remove default margin */
+    line-height: 1.2; /* Adjust line height to reduce spacing between lines */
+    letter-spacing: -1.5px; /* Adjust letter spacing to reduce the spacing between characters */
+}
+
+/* Navbar styles */
+.navbar-custom {
+    background-color: #000000 !important;
+    padding: 50px 70px;
+    position: absolute; /* Position absolutely within the header */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the container */
+    z-index: 2; /* Ensure navbar is above the image */
+}
+
+@font-face {
+    font-family: "NeueMontreal-Medium";
+    src: url(fonts/NeueMontreal-Medium.otf);
+}
+
+/* Logo image styles */
+.logo-img {
+    max-height: 41px;
+    max-width: 50px;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+/* Navbar item styles */
+.nav-item {
+    font-family: 'NeueMontreal-Medium', sans-serif;
+}
+
+/* Nav link styles */
+.nav-link {
+    font-family: 'NeueMontreal-Medium', sans-serif;
+    margin-right: 20px;
+}
+
+.nav-link.btn {
+    width: auto;
+    height: auto;
+    border-radius: 36px;
+    margin-left: 10px;
+    padding: 10px 23px;
+}
+
+/* Define the keyframes for the slide-in animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px); /* Start above the original position */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateY(0); /* End at the original position */
+        opacity: 1; /* End visible */
+    }
+}
+
+/* Apply the animation to the navbar items */
+.navbar-nav .nav-item {
+    animation: slideDown 0.5s ease-in-out; /* Changed easing function */
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+/* Delay animation for each item to create a cascading effect */
+.navbar-nav .nav-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.navbar-nav .nav-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.navbar-nav .nav-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.navbar-nav .nav-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Apply the same animation to the logo */
+.navbar-brand {
+    animation: slideDown 0.5s ease-in-out; /* Changed easing function */
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 0s; /* Adjust delay if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .header-text {
+        bottom: 70px; /* Move text closer to the bottom on medium screens */
+        left: 10px; /* Reduce horizontal padding */
+        padding: 0 10px; /* Adjust padding for medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .header-text {
+        bottom: 50px; /* Move text closer to the bottom on small screens */
+        left: 5px; /* Further reduce horizontal padding */
+        padding: 0 10px; /* Maintain padding */
+    }
+
+    .small-text {
+        font-size: 12px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .large-text {
+        font-size: 48px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        bottom: 40px; /* Move text to the bottom on extra small screens */
+        left: 0; /* Align text to the left edge */
+        padding: 0 5px; /* Further adjust padding */
+    }
+
+    .small-text {
+        font-size: 10px; /* Further adjust font size for extra small screens */
+        margin-bottom: 15px; /* Further adjust margin */
+    }
+
+    .large-text {
+        font-size: 36px; /* Further adjust font size for extra small screens */
+    }
+}
+
+/* Define the keyframes for the slide-up animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px); /* Start below the original position */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateY(0); /* End at the original position */
+        opacity: 1; /* End visible */
+    }
+}
+
+/* Apply the animation to the header text elements */
+.header-text .small-text,
+.header-text .large-text {
+    animation: slideUp 0.5s ease-in-out; /* Slide-up animation */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+    opacity: 0; /* Start invisible */
+}
+
+/* Delay animation for each text element */
+.header-text .small-text {
+    animation-delay: 0.2s; /* Adjust delay for small text */
+}
+
+.header-text .large-text {
+    animation-delay: 0.4s; /* Adjust delay for large text */
+}
+
+/* Adjust the header-icons section */
+.header-icons {
+    display: flex; /* Keep icons in a row */
+    align-items: flex-end; /* Align icons to the bottom */
+    justify-content: center; /* Center the icons horizontally */
+    gap: 10px; /* Space between icons */
+    position: absolute; /* Position absolutely to place it over the image */
+    right: 89px; /* Adjust the right value to align with the text */
+    bottom: 70px; /* Align to the bottom */
+    z-index: 2; /* Ensure icons are above the image */
+}
+
+/* Apply the slide-up animation to the icons */
+.icon-link {
+    display: block; /* Ensure the links are displayed as blocks */
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start below the original position */
+    animation: slideUp 0.5s ease-in-out forwards; /* Slide-up animation */
+}
+
+/* Delay the animation for each icon to create a cascading effect */
+.header-icons .icon-link:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.header-icons .icon-link:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.header-icons .icon-link:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.header-icons .icon-link:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.header-icons .icon-link:nth-child(5) {
+    animation-delay: 0.9s;
+}
+
+.icon-link i {
+    font-size: 24px; /* Adjust size as needed */
+    color: #ffffff; /* Set icon color to white */
+    display: block; /* Ensure the icons are displayed as blocks */
+}
+
+.nav-link:hover {
+    color: #696969 !important;
+    transition-duration: 300ms;
+}
+
+/* Ensure button styles are specific */
+.nav-link.btn {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* Hover effect for the button */
+.nav-link.btn:hover {
+    color: #ffffff !important; /* Ensure text color change */
+    background-color: #000000 !important; /* Ensure background color change */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4) !important; /* Ensure drop shadow */
+}
+
+.icon-link:hover {
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.6); /* Drop shadow effect */
+    opacity: 1; /* Ensure full opacity on hover */
+    border-radius: 50%;
+    transition: 300ms ease-in-out;
+}
